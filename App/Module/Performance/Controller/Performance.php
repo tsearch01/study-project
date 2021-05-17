@@ -15,9 +15,7 @@ require APP_ROOT . '/Lib/Helpers/Validation.php';
 class Performance extends Controller{
 
     public function index(){
-
-            echo __METHOD__ . ' called <br>';
-
+        
             //Return results from a specific model with params.
             $results = $this->model('Performance','ReadPerformance');
 
