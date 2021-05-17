@@ -1,15 +1,12 @@
 <?php
-
 $performance = $data;
-
+$file = __FILE__;
 ?>
 
 <?php require APP_ROOT . '/Lib/view/includes/header.php';?>
 
 <div class="container">
-
-    <form action="/studyproject/performance/update/" method="POST">
-
+    <form action="/study-project/performance/update/" method="POST">
         <?php if(isset($performance) && !(empty($performance['id']))): ?>
             <h2>Edit Page: Performance <?=$performance['id']?></h2>
             <br>
@@ -25,7 +22,6 @@ $performance = $data;
         <input id="venueField" type="text" name="venue" placeholder="venue" value="<?= isset($performance)? $performance['venue_id']: "" ?>" >
         <div id="venueFieldError" class="error"><?= isset($performance['errorMessages']['venue_id'])? $performance['errorMessages']['venue_id']: ""?></div>
 
-
         <label for="programmeField">Programme: </label>
         <input id="programmeField" type="text" name="programme" placeholder="programme" value="<?= isset($performance)? $performance['programme_id']: "" ?>">
         <div id="programmeFieldError" class="error"><?= isset($performance['errorMessages']['programme_id'])? $performance['errorMessages']['programme_id']: ""?></div>
@@ -37,7 +33,6 @@ $performance = $data;
 
 
         <button id="performanceFormButton">Submit</button>
-
     </form>
 </div>
 

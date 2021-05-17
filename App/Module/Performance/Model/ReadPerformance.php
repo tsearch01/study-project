@@ -30,12 +30,9 @@ class ReadPerformance extends PerformanceCrudRepository implements ExecuteInterf
 
     public function execute() 
     {
-        echo __METHOD__ . ' called <br>';
-
         if (is_null($this->performanceDataObject->getPerformanceId())) {
             return $this->getList();
         } else {
-            
             return $this->getListById($this->performanceDataObject);
         }
     }

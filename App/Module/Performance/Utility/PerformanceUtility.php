@@ -11,7 +11,6 @@ require APP_ROOT . '/Module/Performance/Utility/Sorter.php';
  */
 class PerformanceUtility extends DatabaseConnection
 {
-
     /**
      * getPerformanceInfoById
      * 
@@ -41,15 +40,10 @@ class PerformanceUtility extends DatabaseConnection
 
         //prepare statement with placeholder value ready for binding
         $stmt = $conn->prepare($sql);
-
         $stmt->bindValue(1, $performance_id, PDO::PARAM_INT);
-
         $stmt->execute();
-
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         $results = Sorter::resultsSorter($results);
-
         return $results;
     }
 
@@ -66,7 +60,6 @@ class PerformanceUtility extends DatabaseConnection
      */
     public function getAllPerformancesInfo()
     {
-
         //get database connection object
         Parent::setConn();
         $conn = Parent::getConn();
@@ -88,20 +81,16 @@ class PerformanceUtility extends DatabaseConnection
         {
             //print out the error information sent to the PDO object, and contained within the new PDOException object.
             echo "Oops, looks like there was an issue with your database query.";
-            if($err)
-            {
+            if ($err) {
                 echo $this->conn->errorCode();
                 var_dump($this->conn->errorInfo());
                 echo $e->getMessage();
             }
             exit();
         }
-        
         //Perform query on database to return records that meet query conditions, return as associative array.
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
         $results = Sorter::resultsSorter($results);
-
         return $results;
     }   
 }

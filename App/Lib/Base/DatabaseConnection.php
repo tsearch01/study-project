@@ -4,10 +4,9 @@
  * 
  * This class can be used to create and retrieve use a Database Connection PDO.
  */
-Abstract class DatabaseConnection{
-
+Abstract class DatabaseConnection
+{
     //Attributes
-
     /**
      * PDO object
      * 
@@ -23,31 +22,25 @@ Abstract class DatabaseConnection{
      * 
      * @return null, creates PDO attribute that is accessible after instantiation.
      */ 
-    protected function setConn(){
+    protected function setConn()
+    {
         $servername = "localhost";
         $username = "root";
         $password = "";
         $dbname = "orchestra";
         $rdbms = "mysql";
 
-        try 
-        {
+        try {
             $this->conn = new PDO("{$rdbms}:host={$servername};dbname={$dbname}",$username,$password);
         }
-        catch(PDOException $e)
-        {
+        catch (PDOException $e) {
             echo "Oops, looks like there was an issue connecting to the database. Check your credentials and try again.";
-            if($err)
-            {
+            if ($err) {
                 $e->getMessage();
             }
             exit();
         };
-
         return true;
-
-        //Check for connection to DB.
-        // echo '$conn property initialised <br>';
     }
 
     /**
@@ -59,7 +52,8 @@ Abstract class DatabaseConnection{
      * 
      * @return PDO $conn, the property that holds the PDO created by the database constructor method is returned.
      */
-    protected function getConn(){
+    protected function getConn()
+    {
         return $this->conn;
     }
 

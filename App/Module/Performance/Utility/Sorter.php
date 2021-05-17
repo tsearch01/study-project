@@ -38,7 +38,6 @@ class Sorter
         foreach($results as $result)
         {
             $performance_id = $result['performance'];
-            
             // ANALYSIS AID FOR SORTING ALGORITHM
             // echo "current p_id:" . $performance_id;
             // echo "<br>";
@@ -46,8 +45,7 @@ class Sorter
             // echo "<br>";
             // echo "<br>";
         
-            if(($performance_id!=$previous_performance_id))
-            {
+            if (($performance_id!=$previous_performance_id)) {
                 $programmed_music[$music_count]=$result['programmed_music'];
                 $performance[$index] = ["performance"=>$result['performance'],"date"=>$result['date'],"venue"=>$result['venue'], "music"=>$programmed_music];
                 $music_count++;
@@ -61,8 +59,7 @@ class Sorter
             $previous_performance_id=$performance_id;
         
             //NOTE: hardcoded dependency on each performance == 3 works, refactoring design required.
-            if($music_count==3)
-            {
+            if ($music_count==3) {
                 $performance_id++;
                 $music_count=0;
                 $index++;

@@ -8,8 +8,8 @@ require APP_ROOT . '/Lib/Base/DatabaseConnection.php';
  * 
  * implements extends DatabaseConnection (abstract). 
  */
-abstract class DatabaseAccessValidator extends DatabaseConnection{
-   
+abstract class DatabaseAccessValidator extends DatabaseConnection
+{
      //PROPERTIES
      /**
      * string table
@@ -28,31 +28,24 @@ abstract class DatabaseAccessValidator extends DatabaseConnection{
 
      //METHODS
      //Set table property to argument string
-     protected function databaseAccessValidator($table){
-
+     protected function databaseAccessValidator($table)
+     {
           //Initialise table property with string argument value
           $this->table = $table;
-
           //Check table matches table in the database to operate on
-          if(in_array($this->table, $this->db_tables)){ 
-
-          }else{
+          if (in_array($this->table, $this->db_tables)) {
+          } else {
                echo $table . ' is not a recognised database table, please insert a recognised table';
           }
-
           return Parent::setConn();
      }
 
-     protected function databaseAccess(){
-
-          if(is_null(Parent::getConn()))
-          {
+     protected function databaseAccess()
+     {
+          if (is_null(Parent::getConn())) {
                echo 'database connection not validated yet, please call databaseAccessValidator($table) with an existing, accessible table.';
-
-          }else{
-
+          } else {
                return Parent::getConn();
-
           }
      }
 

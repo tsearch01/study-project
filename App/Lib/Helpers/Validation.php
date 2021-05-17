@@ -1,5 +1,7 @@
 <?php
 
+use JetBrains\PhpStorm\Pure;
+
 /**
  * Validation Class
  *
@@ -9,10 +11,9 @@
 
 class Validation {
 
-    public static function performanceIdValidator($num)
+    public static function performanceIdValidator(mixed $num): string
     {
         $errorMessage = "";
-
         if (empty($num)) {
             //new performance to be created
         } else {
@@ -30,7 +31,7 @@ class Validation {
         return $errorMessage;
     }
 
-    public static function venueIdValidator($num)
+    public static function venueIdValidator(mixed $num): string
     {
         $errorMessage = "";
         if (empty($num)) {
@@ -50,7 +51,7 @@ class Validation {
         return $errorMessage;
     }
 
-    public static function programmeIdValidator($num)
+    public static function programmeIdValidator(mixed $num): string
     {
         $errorMessage = "";
         if (empty($num)) {
@@ -70,10 +71,8 @@ class Validation {
         return $errorMessage;
     }
 
-    public static function dateValidator($date)
+    public static function dateValidator(string $date): string
     {
-        echo __METHOD__;
-
         $errorMessage = "";
         //CHECK date index in POST array
         if (empty($date)) {
@@ -97,7 +96,7 @@ class Validation {
     /**
      *validateDate() will compare $_POST['date'] with DateTime format 'Y-m-d H:i:s'.
      */
-    public static function dateFormatValidator($date, $format = "Y-m-d H:i:s"): bool
+    public static function dateFormatValidator(string $date, string $format = "Y-m-d H:i:s"): bool
     {
         $d = DateTime::createFromFormat($format, $date);
         return $d && $d->format($format) == $date;
@@ -106,16 +105,13 @@ class Validation {
     /**
      * todayDateCheck() will convert the $_POST['date'] value into a DateTime object then isolate the date component ('Y-m-d') as a string and compare with today's date.
     */
-    public static function todayDateCheck($date): bool
+    public static function todayDateCheck(string $date): bool
     {
         $format = "Y-m-d";
-
         $date = new DateTime($date);
         $dateStr = $date->format($format);
-
         $today = new DateTime();
         $todayStr = $today->format($format);
-
         if ($todayStr == $dateStr) {
             return 0;
         } else {
@@ -126,12 +122,10 @@ class Validation {
     /**
      * pastDate() will create new DateTime object using date and compare with current date, if in the past then send false
      */
-    public static function pastDateCheck($date)
+    public static function pastDateCheck(string $date): bool
     {
         $date = new DateTime($date);
-
         $today = new DateTime();
-
         if (!($today<$date)) {
             return false;
         } else {

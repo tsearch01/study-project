@@ -17,14 +17,13 @@ document.getElementById("performanceFormButton").addEventListener("click", funct
     }
 });
 
-
 function checkVenueField()
 {
     let venue = document.getElementById("venueField");
     let venueError = document.getElementById("venueFieldError");
     if (!venue.value) {
-            venueError.innerText = "FE: A venue id must be entered.";
-            return false;
+        venueError.innerText = "FE: A venue id must be entered.";
+        return false;
     } else {
         if (isNaN(venue.value)) {
             venueError.innerText = "FE: A venue id must be a numeric value.";
@@ -101,16 +100,14 @@ function checkDateField()
         dateError.innerText = "FE: A date must be entered.";
         return false;
     } else {
-            let regex = /^\d{4}-\d{2}-\d{2}\s{1}\d{2}:\d{2}:\d{2}/g;
-            if (date.value.match(regex)===null) {
-                //1. Check datetime value is of correct format YYYY-MM-DD HH:MM:SS
-                dateError.innerText = "FE: A date of the following format must be entered YYYY-MM-DD HH:MM:SS";
-                return false;
-            }
-            console.log("date validation: PASSED");
-            dateError.innerText = "";
-            return true;
+        let regex = /^\d{4}-\d{2}-\d{2}\s{1}\d{2}:\d{2}:\d{2}/g;
+        if (date.value.match(regex)===null) {
+            //1. Check datetime value is of correct format YYYY-MM-DD HH:MM:SS
+            dateError.innerText = "FE: A date of the following format must be entered YYYY-MM-DD HH:MM:SS";
+            return false;
+        }
+        console.log("date validation: PASSED");
+        dateError.innerText = "";
+        return true;
     }
-
 }
-

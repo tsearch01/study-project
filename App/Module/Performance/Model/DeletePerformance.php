@@ -12,7 +12,6 @@ require APP_ROOT . '/Lib/Api/ExecuteInterface.php';
  */
 class DeletePerformance extends PerformanceCrudRepository implements ExecuteInterface
 {
-
     //PROPERTIES
     /**
      * PerformanceDataRepository object
@@ -23,20 +22,15 @@ class DeletePerformance extends PerformanceCrudRepository implements ExecuteInte
 
     //METHODS
     //Construct Method
-    public function __construct($performance_id = null){
-
+    public function __construct($performance_id = null)
+    {
         $this->performanceDataObject = new PerformanceDataRepository;
-
         $this->performanceDataObject->setPerformanceId($performance_id);
-        
     }
 
-    public function execute(){
-
-        echo __METHOD__ . ' called <br>';
-
+    public function execute()
+    {
         return Parent::deleteById($this->performanceDataObject);
-
     }
 
 }

@@ -22,32 +22,18 @@ class UpdatePerformance extends PerformanceCrudRepository implements ExecuteInte
 
     //METHODS
     //Construct Method
-    public function __construct(array $performanceData){
-
-        echo __METHOD__ . ' called <br>';
-
+    public function __construct(array $performanceData)
+    {
         $this->performanceDataObject = new PerformanceDataRepository;
-
         $this->performanceDataObject->setPerformanceId($performanceData['id']);
-        
         $this->performanceDataObject->setVenueId($performanceData['venue_id']);
-        
         $this->performanceDataObject->setProgrammeId($performanceData['programme_id']);
-        
         $this->performanceDataObject->setDate($performanceData['date']);
-        
-        echo "<br><br>";
-        var_dump($this->performanceDataObject);
-        echo "<br><br>";
-
     }
 
-    public function execute(){
-
-        echo __METHOD__ . ' called <br>';
-
+    public function execute()
+    {
         return Parent::update($this->performanceDataObject);
-
     }
 
 }

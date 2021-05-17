@@ -22,27 +22,18 @@ class SavePerformance extends PerformanceCrudRepository implements ExecuteInterf
 
     //METHODS
     //Construct Method
-    public function __construct(array $performanceData){
-
+    public function __construct(array $performanceData)
+    {
         $this->performanceDataObject = new PerformanceDataRepository;
-
         $this->performanceDataObject->setPerformanceId($performanceData['id']);
-        
         $this->performanceDataObject->setVenueId($performanceData['venue_id']);
-        
         $this->performanceDataObject->setProgrammeId($performanceData['programme_id']);
-        
         $this->performanceDataObject->setDate($performanceData['date']);
-        
-        
     }
 
-    public function execute(){
-
-        echo __METHOD__ . ' called <br>';
-
+    public function execute()
+    {
         return Parent::save($this->performanceDataObject);
-
     }
 
 }
