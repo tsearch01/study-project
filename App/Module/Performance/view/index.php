@@ -5,22 +5,16 @@ $file = __FILE__;
 
 <?php require APP_ROOT . '/Lib/view/includes/header.php';?>
 
-<main>
-<br>
-<a href="/study-project/performance/edit/">Create Performance</a>
-<br>
-<br>
-<?php if($performances): ?>
-    <div class="container">
-        <?php foreach($performances as $performance): ?>
-            <div class="row">
-                <div class="col">
-                    <article>
-                        <header>
-                            <a href="/study-project/performance/show/<?= $performance['id']?>">Performance <?=$performance['id']?></a>
-                        </header>
-                        <body>
-                        <div>Venue:
+<div class="main-container">
+    <main>
+        <?php if($performances): ?>
+        <div class="group row">
+            <?php foreach($performances as $performance): ?>
+            <div class="performance">
+                <article>
+                    <ul class="group">
+                        <li> <a href="/study-project/performance/show/<?= $performance['id']?>">Performance <?=$performance['id']?></a></li>
+                        <li> Venue:
                             <?php if($performance['venue_id'] == 1){
                                 echo 'Royal Festival Hall';
                             }else if($performance['venue_id'] == 2){
@@ -28,15 +22,18 @@ $file = __FILE__;
                             }else if($performance['venue_id'] == 3){
                                 echo 'Kings Place';
                             }?>
-                        </div>
-                        <div>Date: <?=$performance['date']?></div>
-                        </body>
-                    </article>
-                </div>
+                        </li>
+                        <li>Date: <?=$performance['date']?></li>
+                    </ul>
+                </article>
             </div>
-        <?php endforeach; ?>
-    </div>
-<?php endif; ?>
+            <?php endforeach; ?>
+        </div>
+            <a href="/study-project/performance/edit/">Create Performance</a>
+        <?php endif; ?>
+    </main>
+</div>
     
 <?php require APP_ROOT . '/Lib/view/includes/footer.php';?>
+
 
