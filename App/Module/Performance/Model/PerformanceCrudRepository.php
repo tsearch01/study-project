@@ -34,11 +34,8 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
 
         //Bind property values to sql statement placeholder values
         $stmt->bindValue(1, $performanceDataObject->getVenueId(), PDO::PARAM_INT);
-
         $stmt->bindValue(2, $performanceDataObject->getProgrammeId(), PDO::PARAM_INT);
-
         $strDate = $performanceDataObject->getDate()->format('Y-m-d H:i:s');
-
         $stmt->bindValue(3, $strDate, PDO::PARAM_STR);
 
         //Execute PDOStatement
@@ -73,13 +70,9 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
 
         //Bind property values to sql statement placeholder values
         $stmt->bindValue(1, $performanceDataObject->getVenueId(), PDO::PARAM_INT);
-
         $stmt->bindValue(2, $performanceDataObject->getProgrammeId(), PDO::PARAM_INT);
-
         $strDate = $performanceDataObject->getDate()->format('Y-m-d H:i:s');
-
         $stmt->bindValue(3, $strDate, PDO::PARAM_STR);
-
         $stmt->bindValue(4, $performanceDataObject->getPerformanceId(), PDO::PARAM_INT);
 
         //Execute PDOStatement
@@ -111,7 +104,6 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
         //Execute statement and fetch results
         try{
              $stmt->execute();
-
              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         } catch (PDOException $e){
@@ -119,9 +111,7 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
              $message = $e->getMessage(); 
              echo $message;
         }
-
         return $results;
-
     }
 
     public function getListById(PerformanceDataRepository $performanceDataObject){
@@ -147,7 +137,6 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
         //Execute statement and fetch results
         try{
              $stmt->execute();
-
              $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
         } catch (PDOException $e){
@@ -155,9 +144,7 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
              $message = $e->getMessage(); 
              echo $message;
         }
-
         return $results;
-
     }
 
     public function deleteById(PerformanceDataRepository $performanceDataObject){
@@ -190,7 +177,57 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
                 echo $message;
             }
 
-            return $stmt->rowCount();
+            /*/Reset auto-increment function in performance id column
+            if ($this->performanceAutoIdCleanUp()) {
+                return $stmt->rowCount();
+            } else {
+                die('AUTO_INCREMENT ERROR');
+            };*/
+        }
 
+        private function performanceAutoIdCleanUp()
+        {
+            $sql = "ALTER TABLE performance
+                    auto_increment = ?;";
+
+            //Prepare statement and convert to PDOStatement
+            $stmt = $this->databaseAccess()->prepare($sql);
+
+            //Bind int argument to placeholder value.
+            $stmt->bindValue(1, $this->getMaxId(), PDO::PARAM_INT);
+
+            //Execute statement and fetch results
+            try{
+                $result = $stmt->execute();
+
+            } catch (PDOException $e){
+                //Get string version of error message and store in variable
+                $message = $e->getMessage();
+                echo $message;
+            }
+            return $result;
+        }
+
+        private function getMaxId()
+        {
+            $sql = "SELECT MAX(id) FROM performance;";
+
+            //Prepare statement and convert to PDOStatement
+            $stmt = $this->databaseAccess()->prepare($sql);
+
+            //Execute statement and fetch results
+            try{
+                $stmt->execute();
+                $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                //Format Results
+                $results = $results[0]["MAX(id)"];
+
+            } catch (PDOException $e){
+                //Get string version of error message and store in variable
+                $message = $e->getMessage();
+                echo $message;
+            }
+            return $results;
         }
 }

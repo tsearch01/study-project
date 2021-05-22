@@ -1,6 +1,6 @@
         <div class="footer-container">
             <footer>
-                <p>This is the footer @2021</p>
+                <p>This is the footer &copy2021</p>
             </footer>
         </div>
     </div>

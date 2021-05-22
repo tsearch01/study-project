@@ -1,0 +1,12 @@
+{
+    "name": "tsearch/app",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Search",
+            "email": "tsearch01@gmail.com"
+        }
+    ],
+    "require": {}
+}
