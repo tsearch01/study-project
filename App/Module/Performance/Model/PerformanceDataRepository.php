@@ -2,7 +2,6 @@
 
 require APP_ROOT . '/Module/Performance/Api/Data/PerformanceDataInterface.php';
 
-
 class PerformanceDataRepository implements PerformanceDataInterface
 {
     //PROPERTIES
@@ -32,49 +31,49 @@ class PerformanceDataRepository implements PerformanceDataInterface
 
     //METHODS
     //performanceInterface Methods
-    public function setPerformanceId($id){
-
+    public function setPerformanceId($id): bool
+    {
         $this->performance_id = $id;
+        return true;
     }
 
-    public function getPerformanceId(){
-
+    public function getPerformanceId(): mixed
+    {
         return $this->performance_id;
     }
 
-    public function setVenueId($id){
-
+    public function setVenueId($id): bool
+    {
         $this->venue_id = $id;
+        return true;
     }
 
-    public function getVenueId(){
-
+    public function getVenueId(): mixed
+    {
         return $this->venue_id;
-
     }
 
-    public function setProgrammeId($id){
-
+    public function setProgrammeId($id): bool
+    {
         $this->programme_id = $id;
+        return true;
     }
 
-    public function getProgrammeId(){
-
+    public function getProgrammeId(): mixed
+    {
         return $this->programme_id;
-
     }
 
-    public function setDate($date){
-
+    public function setDate($date): bool
+    {
         //Convert $date argument to DateTime() data type and use as argument to setDate()
         $dateTime = new DateTime($date);
-        
         $this->date = $dateTime;
+        return true;
     }
 
-    public function getDate(){
-
+    public function getDate(): mixed
+    {
         return $this->date;
-
     }
 }

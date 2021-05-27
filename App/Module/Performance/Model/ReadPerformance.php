@@ -5,9 +5,7 @@ require APP_ROOT . '/Lib/Api/ExecuteInterface.php';
 
 /**
  * ReadPerformance Class
- * 
  * Provides methods for retrieving an existing record(s) in the performance database
- * 
  * @requires PerformanceCrudRepository class, ExecuteInterface interface
  */
 class ReadPerformance extends PerformanceCrudRepository implements ExecuteInterface

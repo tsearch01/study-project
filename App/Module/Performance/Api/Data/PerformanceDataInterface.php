@@ -3,16 +3,16 @@
 interface PerformanceDataInterface
 {
     
-    public function setPerformanceId($id);
-    public function getPerformanceId();
+    public function setPerformanceId($id): bool;
+    public function getPerformanceId(): mixed;
 
-    public function setVenueId($id);
-    public function getVenueId();
+    public function setVenueId($id): bool;
+    public function getVenueId(): mixed;
 
-    public function setProgrammeId($id);
-    public function getProgrammeId();
+    public function setProgrammeId($id): bool;
+    public function getProgrammeId(): mixed;
 
-    public function setDate($date);
-    public function getDate();
+    public function setDate($date): bool;
+    public function getDate(): mixed;
     
 }

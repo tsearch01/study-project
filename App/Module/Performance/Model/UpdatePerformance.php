@@ -5,9 +5,7 @@ require APP_ROOT . '/Lib/Api/ExecuteInterface.php';
 
 /**
  * UpdatePerformance Class
- * 
  * Provides methods for updating an existing record in the performance database
- * 
  * @requires PerformanceCrudRepository class, ExecuteInterface interface
  */
 class UpdatePerformance extends PerformanceCrudRepository implements ExecuteInterface
@@ -15,7 +13,6 @@ class UpdatePerformance extends PerformanceCrudRepository implements ExecuteInte
     //PROPERTIES
     /**
      * PerformanceDataRepository object
-     * 
      * @return object $performanceDataRepository object that provides access to data for a particular performance.
      */
     private PerformanceDataRepository $performanceDataObject;

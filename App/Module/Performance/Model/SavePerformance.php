@@ -5,9 +5,7 @@ require APP_ROOT . '/Lib/Api/ExecuteInterface.php';
 
 /**
  * SavePerformance Class
- * 
  * Provides methods for saving a new record in the performance database
- * 
  * @requires PerformanceCrudRepository class, ExecuteInterface interface
  */
 class SavePerformance extends PerformanceCrudRepository implements ExecuteInterface

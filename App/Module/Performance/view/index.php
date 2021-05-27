@@ -14,7 +14,7 @@ $file = __FILE__;
                 <article>
                     <a href="/study-project/performance/show/<?= $performance['id']?>">
                         <ul class="group">
-                            <li class="title"> Performance <?=$performance['id']?></li>
+                            <li class="title"> Performance <?=$performance['name']?></li>
                             <li> Venue:
                                 <?php if($performance['venue_id'] == 1){
                                     echo 'Royal Festival Hall';

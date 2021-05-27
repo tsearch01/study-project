@@ -14,7 +14,7 @@ $file = __FILE__;
             <div class="performanceInfo">
                 <article>
                     <ul class="group">
-                        <li><h2>Performance: <?= $performance[0]['id'] ?></h2></li>
+                        <li><h2>Performance: <?= $performance[0]['name'] ?></h2></li>
                         <li><h3><strong>Programme: </strong><?= $performance[0]['programme_id']?></h3></li>
                         <li><h3><strong>Venue: </strong> <?=$performance[0]['venue_id']?></h3></li>
                         <li><h3><strong>Date: </strong> <?=$performance[0]['date']?></h3></li>
