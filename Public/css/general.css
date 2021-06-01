@@ -1,0 +1,53 @@
+html {
+    font-family: 'Comfortaa', cursive;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0 auto;
+    background-position: center;
+    background-image: url("/study-project/Public/img/spacePaintTexture.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    backdrop-filter: sepia(.1);
+}
+
+ul {
+    padding-left: unset;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: 940px;
+    margin-right: auto;
+    margin-left: auto;
+    box-sizing: border-box;
+}
+
+.error {
+    color: red;
+    margin-top: 1%;
+}
+
+/* clearing float begin*/
+.fix {
+    clear: both;
+}
+
+.group:before,
+.group:after {
+    content: "";
+    display: table;
+}
+
+.group:after {
+    clear: both;
+}
+
+.group {
+    zoom: 1;
+}
+/* clearing float end*/

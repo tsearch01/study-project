@@ -5,17 +5,19 @@
     <meta charset ="utf-8">
     <title>Performance</title>
 
-<!--VENDOR CSS STYLING-->
-<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">-->
+    <!--VENDOR CSS-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+
+    <!--CUSTOM CSS-->
+    <link href="<?=CSS_ROOT?>/general.css" rel="stylesheet">
     <?php if (str_contains($file, "index")): ?>
-        <link href="/study-project/public/includes/performance/css/index.css" rel="stylesheet">
-    <?php elseif (str_contains($file,"show")): ?>
-        <link href="/study-project/public/includes/performance/css/show.css" rel="stylesheet">
-    <?php elseif (str_contains($file, "edit")): ?>
-        <link href="/study-project/public/includes/performance/css/edit.css" rel="stylesheet">
-    <?php endif; ?>
+    <link href="<?=CSS_ROOT?>/performance/index.css" rel="stylesheet">
+<?php elseif (str_contains($file,"show")): ?>
+    <link href="<?=CSS_ROOT?>/performance/show.css" rel="stylesheet">
+<?php elseif (str_contains($file, "edit")): ?>
+    <link href="<?=CSS_ROOT?>/performance/edit.css" rel="stylesheet">
+<?php endif; ?>
 
 </head>
 <body>
