@@ -1,3 +1,4 @@
+/* Root elements/classes styling End*/
 html {
     font-family: 'Comfortaa', cursive;
 }
@@ -31,6 +32,25 @@ a {
     color: red;
     margin-top: 1%;
 }
+/* Root elements/classes styling End*/
+
+/* footer styling begin */
+footer {
+    background-color: black;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+footer p {
+    margin: 1% 0;
+    text-align: center;
+    color: rgba(245,245,245, 0.9);
+    text-shadow: rgba(255,255,255, 0.3) 0.2px 0.2px 10px;
+}
+/* footer styling end */
 
 /* clearing float begin*/
 .fix {

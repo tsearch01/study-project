@@ -3,7 +3,6 @@
                 <p>This is the footer &copy2021</p>
             </footer>
         </div>
-    </div>
 </body>
 
 <!--VENDOR JS-->

@@ -11,7 +11,8 @@
 
     <!--CUSTOM CSS-->
     <link href="<?=CSS_ROOT?>/general.css" rel="stylesheet">
-    <?php if (str_contains($file, "index")): ?>
+    <link href="<?=CSS_ROOT?>/nav.css" rel="stylesheet">
+<?php if (str_contains($file, "index")): ?>
     <link href="<?=CSS_ROOT?>/performance/index.css" rel="stylesheet">
 <?php elseif (str_contains($file,"show")): ?>
     <link href="<?=CSS_ROOT?>/performance/show.css" rel="stylesheet">
@@ -21,16 +22,15 @@
 
 </head>
 <body>
-    <div class="background">
-        <header>
-            <div class="container">
-            <h1>Performances <span class="year">2021</span></h1>
-                <nav>
-                    <ul class="group">
-                        <li class="nav-item"><a class="nav-link" href="/study-project/performance">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                    </ul>
-                </nav>
-            </div>
-        </header>
+    <header>
+        <div class="container">
+        <h1>Performances <span class="year">2021</span></h1>
+            <nav>
+                <ul class="group">
+                    <li class="nav-item"><a class="nav-link" href="/study-project/performance">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
