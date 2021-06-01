@@ -28,6 +28,20 @@ a {
     box-sizing: border-box;
 }
 
+.col-box{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+row-box{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+}
+
 .error {
     color: red;
     margin-top: 1%;
