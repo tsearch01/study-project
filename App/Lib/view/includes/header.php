@@ -3,15 +3,14 @@
 <html lang="eng">
 <head>
     <meta charset ="utf-8">
-    <title>Performance</title>
+    <title>Performances 2021</title>
 
     <!--VENDOR CSS-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
 
     <!--CUSTOM CSS-->
-    <link href="<?=CSS_ROOT?>/general.css" rel="stylesheet">
-    <link href="<?=CSS_ROOT?>/nav.css" rel="stylesheet">
+    <link href="<?=CSS_ROOT?>/template.css" rel="stylesheet">
 <?php if (str_contains($file, "index")): ?>
     <link href="<?=CSS_ROOT?>/performance/index.css" rel="stylesheet">
 <?php elseif (str_contains($file,"show")): ?>
@@ -22,15 +21,17 @@
 
 </head>
 <body>
-    <header>
-        <div class="container">
-        <h1>Performances <span class="year">2021</span></h1>
-            <nav>
-                <ul class="group">
-                    <li class="nav-item"><a class="nav-link" href="/study-project/performance">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+    <div class="header-box">
+        <header>
+            <div class="row-box">
+                <h1>Performances <span class="year">2021</span></h1>
+                <nav>
+                    <ul class="row-box">
+                        <li class="nav-item"><a class="nav-link" href="/study-project">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+    </div>

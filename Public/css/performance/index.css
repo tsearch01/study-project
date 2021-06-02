@@ -1,71 +1,7 @@
 /* main styling begin */
-button{
-    font-size: large;
-    display:inline-block;
-    padding:0.5em 3em;
-    border: 2px darkgrey solid;
-    border-radius: 8px;
-    margin:0 0.3em 0.3em 0;
-    box-sizing: border-box;
-    text-decoration:none;
-    color:rgba(255,168,211, 1);
-    background-color: whitesmoke;
-    text-align:center;
-}
 
-button:hover{
-    color: rgba(255,168,211, 1);
-    border: 2px darkgrey solid;
-}
-
-.row {
-    padding-right: 7.75%;
-    box-sizing: border-box;
-}
-
-.performance {
-    width: 20%;
-    height: auto;
-    float: left;
-    background-color: rgba(245,245,245, 0.9);
-    backdrop-filter: blur(5px);
-    border: 2px darkgrey solid;
-    border-radius: 8px;
-    margin: 4% 0 0.5% 4%;
-}
-
-.performance a {
-    color: black;
-}
-
-.performance:hover {
-    border-color: rgba(255,168,211, 1);
-}
-
-.title {
-    color: rgba(255,168,211, 1);
-    text-shadow: rgba(255,255,255, 0.1) 0.2px 0.2px 10px;
-}
-
-.createPerformance {
-    margin: 1% auto;
-    text-align: center;
-}
-
-.performance li {
-    list-style: none;
-    padding: 0 20px;
-}
 /* main styling end */
 
 
-/* In general.css
-Clearing float end
-Root element styling
-base class styling
-Footer styling*/
-
-/* In nav.css
-navigation styling
-Header styling*/
+/* template.css used for baseline css*/
 

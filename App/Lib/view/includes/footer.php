@@ -1,8 +1,10 @@
-        <div class="footer-container">
-            <footer>
-                <p>This is the footer &copy2021</p>
-            </footer>
-        </div>
+    <div class="footer-box">
+        <footer>
+            <div class="box">
+                <p>This is the footer</p>
+            </div>
+        </footer>
+    </div>
 </body>
 
 <!--VENDOR JS-->
