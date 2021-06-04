@@ -14,5 +14,8 @@ interface PerformanceDataInterface
 
     public function setDate($date): bool;
     public function getDate(): mixed;
+
+    public function setImage($image): bool;
+    public function getImage(): mixed;
     
 }

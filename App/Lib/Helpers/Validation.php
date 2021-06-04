@@ -2,14 +2,8 @@
 
 use JetBrains\PhpStorm\Pure;
 
-/**
- * Validation Class
- *
- * Provides utility methods for validating user submitted data within the application
- *
- */
-
-class Validation {
+class Validation
+{
 
     public static function performanceIdValidator(mixed $num): string
     {
@@ -133,3 +127,4 @@ class Validation {
         }
     }
 }
+

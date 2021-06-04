@@ -1,13 +1,5 @@
 <?php
 
-/**
- * Controller
- * 
- * Serves as the base class for all table specific controllers
- * 
- * Methods available model($model, $params), view($view, $data)
- * 
- */
 abstract class Controller
 {
     protected function model($module, $model, $params=null)
@@ -33,3 +25,4 @@ abstract class Controller
         }
     }
 }
+

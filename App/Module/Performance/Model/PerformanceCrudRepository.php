@@ -1,12 +1,8 @@
 <?php
-require APP_ROOT . '/Lib/Base/DatabaseAccessValidator.php';
-require APP_ROOT . '/Module/Performance/Api/Crud/PerformanceCrudRepositoryInterface.php';
 
-/**
- * Performance Class
- * Provides methods for performing CRUD functions on performance db table
- * @requires Database
- */
+require_once APP_ROOT . '/Lib/Base/DatabaseAccessValidator.php';
+require_once APP_ROOT . '/Module/Performance/Api/Crud/PerformanceCrudRepositoryInterface.php';
+
 class PerformanceCrudRepository extends DatabaseAccessValidator implements PerformanceCrudRepositoryInterface
 {
     //METHODS
@@ -17,8 +13,8 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
         $this->databaseAccessValidator('performance');
 
         //sql statement
-        $sql = "INSERT INTO performance(venue_id,programme_id,date)
-                VALUES (?,?,?)";
+        $sql = "INSERT INTO performance(venue_id,programme_id,date,image)
+                VALUES (?,?,?,?)";
 
         //Prepare sql statement and convert to PDOStatement
         $stmt = $this->databaseAccess()->prepare($sql);
@@ -28,6 +24,7 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
         $stmt->bindValue(2, $performanceDataObject->getProgrammeId(), PDO::PARAM_INT);
         $strDate = $performanceDataObject->getDate()->format('Y-m-d H:i:s');
         $stmt->bindValue(3, $strDate, PDO::PARAM_STR);
+        $stmt->bindValue(4, $performanceDataObject->getImage(), PDO::PARAM_STR);
 
         //Execute PDOStatement
         $stmt->execute();
@@ -46,7 +43,7 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
 
         //Establish foundation of sql statement
         $sql = "SELECT * FROM (
-                SELECT per.id as id, per.venue_id as venue_id, per.programme_id as programme_id, per.date as date, pro.name as name FROM performance as per
+                SELECT per.id as id, per.venue_id as venue_id, per.programme_id as programme_id, per.date as date, pro.name as name, per.image as image FROM performance as per
                 LEFT JOIN programme as pro ON per.programme_id = pro.id) as prf;";
 
         //Prepare statement and convert to PDOStatement
@@ -71,8 +68,8 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
     
         //Establish foundation of sql statement
         $sql = "SELECT * FROM (
-                SELECT per.id as id, per.venue_id as venue_id, per.programme_id as programme_id, per.date as date, pro.name as name FROM performance as per
-                LEFT JOIN programme as pro ON per.programme_id = pro.id) as prf;)
+                SELECT per.id as id, per.venue_id as venue_id, per.programme_id as programme_id, per.date as date, pro.name as name, per.image as image FROM performance as per
+                LEFT JOIN programme as pro ON per.programme_id = pro.id) as prf
                 WHERE id = ? ;";
 
         //Prepare statement and convert to PDOStatement
@@ -102,7 +99,8 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
         $sql = 'UPDATE performance
                 SET venue_id = ?,
                     programme_id = ?,
-                    date = ?
+                    date = ?,
+                    image = ?
                 WHERE id = ?';
 
         //Prepare sql statement and convert to PDOStatement
@@ -113,7 +111,8 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
         $stmt->bindValue(2, $performanceDataObject->getProgrammeId(), PDO::PARAM_INT);
         $strDate = $performanceDataObject->getDate()->format('Y-m-d H:i:s');
         $stmt->bindValue(3, $strDate, PDO::PARAM_STR);
-        $stmt->bindValue(4, $performanceDataObject->getPerformanceId(), PDO::PARAM_INT);
+        $stmt->bindValue(4, $performanceDataObject->getImage(), PDO::PARAM_STR);
+        $stmt->bindValue(5, $performanceDataObject->getPerformanceId(), PDO::PARAM_INT);
 
         //Execute PDOStatement
         try {
@@ -151,54 +150,6 @@ class PerformanceCrudRepository extends DatabaseAccessValidator implements Perfo
             printf($message);
             return false;
         }
-            /*/Reset auto-increment function in performance id column
-            if ($this->performanceAutoIdCleanUp()) {
-                return $stmt->rowCount();
-            } else {
-                die('AUTO_INCREMENT ERROR');
-            };*/
-    }
-
-    private function performanceAutoIdCleanUp(): bool
-    {
-        $sql = "ALTER TABLE performance
-                auto_increment = ?;";
-
-        //Prepare statement and convert to PDOStatement
-        $stmt = $this->databaseAccess()->prepare($sql);
-
-        //Bind int argument to placeholder value.
-        $stmt->bindValue(1, $this->getMaxId(), PDO::PARAM_INT);
-
-        //Execute statement and fetch results
-        try {
-            $result = $stmt->execute();
-        } catch (PDOException $e) {
-            //Get string version of error message and store in variable
-            $message = $e->getMessage();
-            printf($message);
-        }
-        return $result;
-    }
-
-    private function getMaxId(): array
-    {
-        $sql = "SELECT MAX(id) FROM performance;";
-
-        //Prepare statement and convert to PDOStatement
-        $stmt = $this->databaseAccess()->prepare($sql);
-
-        //Execute statement and fetch results
-        try {
-            $stmt->execute();
-            $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            //Format Results
-            $results = $results[0]["MAX(id)"];
-        } catch (PDOException $e) {
-            //Get string version of error message and store in variable
-            $message = $e->getMessage();
-            printf($message);
-        }
-        return $results;
     }
 }
+

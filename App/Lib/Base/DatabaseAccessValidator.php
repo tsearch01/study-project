@@ -1,5 +1,5 @@
 <?php
-require APP_ROOT . '/Lib/Base/DatabaseConnection.php';
+require_once APP_ROOT . '/Lib/Base/DatabaseConnection.php';
 
 /**
  * DatabaseValidator

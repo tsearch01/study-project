@@ -1,20 +1,11 @@
 <?php
-require APP_ROOT . '/Module/Performance/Model/PerformanceCrudRepository.php';
-require APP_ROOT . '/Module/Performance/Model/PerformanceDataRepository.php';
-require APP_ROOT . '/Lib/Api/ExecuteInterface.php';
 
-/**
- * UpdatePerformance Class
- * Provides methods for updating an existing record in the performance database
- * @requires PerformanceCrudRepository class, ExecuteInterface interface
- */
+require_once APP_ROOT . '/Module/Performance/Model/PerformanceCrudRepository.php';
+require_once APP_ROOT . '/Module/Performance/Model/PerformanceDataRepository.php';
+require_once APP_ROOT . '/Lib/Api/ExecuteInterface.php';
+
 class UpdatePerformance extends PerformanceCrudRepository implements ExecuteInterface
 {
-    //PROPERTIES
-    /**
-     * PerformanceDataRepository object
-     * @return object $performanceDataRepository object that provides access to data for a particular performance.
-     */
     private PerformanceDataRepository $performanceDataObject;
 
     //METHODS
@@ -26,11 +17,12 @@ class UpdatePerformance extends PerformanceCrudRepository implements ExecuteInte
         $this->performanceDataObject->setVenueId($performanceData['venue_id']);
         $this->performanceDataObject->setProgrammeId($performanceData['programme_id']);
         $this->performanceDataObject->setDate($performanceData['date']);
+        $this->performanceDataObject->setImage($performanceData['image']);
     }
 
     public function execute()
     {
         return Parent::update($this->performanceDataObject);
     }
-
 }
+

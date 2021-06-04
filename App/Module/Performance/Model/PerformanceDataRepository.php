@@ -1,6 +1,6 @@
 <?php
 
-require APP_ROOT . '/Module/Performance/Api/Data/PerformanceDataInterface.php';
+require_once APP_ROOT . '/Module/Performance/Api/Data/PerformanceDataInterface.php';
 
 class PerformanceDataRepository implements PerformanceDataInterface
 {
@@ -28,6 +28,12 @@ class PerformanceDataRepository implements PerformanceDataInterface
      * @var datetime
      */
     protected $date;
+
+    /**
+     * Image
+     * @var string
+     */
+    protected $image;
 
     //METHODS
     //performanceInterface Methods
@@ -76,4 +82,16 @@ class PerformanceDataRepository implements PerformanceDataInterface
     {
         return $this->date;
     }
+
+    public function setImage($image): bool
+    {
+        $this->image = $image;
+        return true;
+    }
+
+    public function getImage(): mixed
+    {
+        return $this->image;
+    }
 }
+

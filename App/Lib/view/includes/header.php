@@ -1,14 +1,11 @@
-<!-- PRESENTATION CODE -->
 <!doctype HTML>
 <html lang="eng">
 <head>
     <meta charset ="utf-8">
     <title>Performances 2021</title>
-
     <!--VENDOR CSS-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
-
     <!--CUSTOM CSS-->
     <link href="<?=CSS_ROOT?>/template.css" rel="stylesheet">
 <?php if (str_contains($file, "index")): ?>
@@ -18,7 +15,6 @@
 <?php elseif (str_contains($file, "edit")): ?>
     <link href="<?=CSS_ROOT?>/performance/edit.css" rel="stylesheet">
 <?php endif; ?>
-
 </head>
 <body>
     <div class="header-box">

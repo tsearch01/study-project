@@ -11,7 +11,7 @@
 
 <!--CUSTOM JS-->
 <?php if (str_contains($file, "edit")): ?>
-    <script src="<?=JS_ROOT?>/edit.js"></script>
+    <script src="<?=JS_ROOT?>/performance/edit.js"></script>
 <?php endif; ?>
 
 </html>
