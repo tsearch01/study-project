@@ -1,0 +1,23 @@
+{
+    "name": "tsearch/app",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Thomas Search",
+            "email": "tsearch01@gmail.com"
+        }
+    ],
+    "require-dev":{
+        "squizlabs/php_codesniffer": "^3.6",
+        "magento/magento-coding-standard": "^6.0"
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+        ],
+        "post-update-cmd": [
+            "([ $COMPOSER_DEV_MODE -eq 0 ] || vendor/bin/phpcs --config-set installed_paths ../../magento/magento-coding-standard/)"
+        ]
+    }
+}
