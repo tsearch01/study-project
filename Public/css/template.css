@@ -1,117 +1,29 @@
 /* Root elements and Container class styling Begin*/
 html {
     font-family: 'Comfortaa', cursive;
+    height: 100%
 }
 
 body {
-    min-height: 100vh;
-    margin: 0 auto;
-    overflow: hidden;
+    margin: 0;
     background-position: center;
     background-image: url("../img/marbleColours.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: sepia(.1);
-    display: flex;
-    flex-direction: column;
 }
 
-box {
-    width: 100%;
-    height: 100%;
-    display: flex;
-}
-
-.col-box {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-}
-
-.row-box {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    box-sizing: border-box;
-    justify-content: center;
-}
-
-.header-box {
-    flex: 0.25;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-
-    background-color: rgba(0, 0, 0, 0.7);
-    color: rgba(245,245,245, 0.9);
-}
-
-.main-box {
-    flex: 6;
-    display: flex;
-}
-
-.footer-box {
-    flex: 0.25;
-    display: flex;
-    justify-content: space-evenly;
-    background-color: black;
-}
 /* Root elements and Container class styling End*/
 
 /* Header elements and class styling Begin*/
-header {
-    width: 100%;
-}
 
-header h1 {
-    flex: 3;
-    font-weight: normal;
-    box-sizing: border-box;
-    padding: 1% 0 0 2%;
-}
-
-header nav{
-    flex: 1;
-    box-sizing: border-box;
-}
-
-nav ul li{
-    padding-top: 8%;
-    flex: 1;
-    list-style: none;
-}
-
-nav ul li a{
-    text-decoration: none;
-    color: rgba(245,245,245, 0.9);
-}
-
-.year {
-    color: rgba(255,168,211, 1);
-    text-shadow: rgba(255,255,255, 0.1) 0.2px 0.2px 10px;
-}
 
 /* Header elements and class styling End*/
 /* Main elements and class styling Begin*/
-main {
-    margin: auto;
-}
+
 
 /* Main elements and class styling End*/
 
 /* Footer elements and class styling Begin*/
 
-footer {
-    width: 100%;
-    height: 100%;
-    margin: auto;
-}
-
-footer p {
-    text-align: center;
-    color: rgba(245,245,245, 0.9);
-}
 /* Footer elements and class styling End*/

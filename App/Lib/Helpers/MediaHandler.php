@@ -1,21 +1,29 @@
 <?php
 
-
 class MediaHandler
 {
     public static function imageValidator(): string
     {
-        $errorMessage = '';
+        print_r($_FILES);
+        $validMimes=['image/jpeg','image/png'];
+        $errorMessage = "";
         //conditional logic inspection of file.
+        if ($_FILES['perf_img']['size'] >= 100000) {
+            //upload_max_filesize=40M
+            $errorMessage = 'file must be under 1MB';
+        } elseif (strlen($_FILES['perf_img']['name']) >= 20) {
+            $errorMessage = 'file name must be under 20 characters';
+        } elseif (!in_array(mime_content_type($_FILES['perf_img']['tmp_name']), $validMimes)) {
+            $errorMessage = 'file name must be of type image/jpeg, image/png';
+        }
         return $errorMessage;
     }
 
     public static function imageHandler(int $id): bool|string
     {
-        $imageRelPath = '/img/performance/' . $id . '/' . $_FILES['perf_img']['name'];
-        $imageUploadFile = PUBLIC_ROOT . $imageRelPath;
-        $imageUploadDir = PUBLIC_ROOT . '/img/performance/'.$id .'/';
-        echo $imageUploadFile;
+        $imageRelPath = '/' . $id . '/' . $_FILES['perf_img']['name'];
+        $imageUploadDir = PUBLIC_ROOT . '/img/performance'.$id .'/';
+        $imageUploadFile = PUBLIC_ROOT . '/img/performance' . $imageRelPath;
         if (!is_dir($imageUploadDir)) {
             if (!mkdir($imageUploadDir)) {
                 echo 'failed to make directory';

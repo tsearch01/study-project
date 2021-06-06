@@ -1,10 +1,6 @@
-    <div class="footer-box">
-        <footer>
-            <div class="box">
-                <p>This is the footer</p>
-            </div>
-        </footer>
-    </div>
+    <footer>
+        <p>This is the footer</p>
+    </footer>
 </body>
 
 <!--VENDOR JS-->

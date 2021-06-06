@@ -3,8 +3,7 @@ $performances = $data;
 $file = __FILE__;
 ?>
 <?php require APP_ROOT . '/Lib/view/includes/header.php';?>
-    <div class="main-box">
-        <main>
+    <main>
 <?php if($performances): ?>
     <?php foreach($performances as $performance): ?>
         <div class="performance">
@@ -31,8 +30,7 @@ $file = __FILE__;
             <a href="/study-project/performance/edit/"><button><strong>+</strong> Performance</button></a>
         </div>
 <?php endif; ?>
-        </main>
-    </div>
+    </main>
 <?php require APP_ROOT . '/Lib/view/includes/footer.php';?>
 
 
