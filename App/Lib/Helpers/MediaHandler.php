@@ -22,12 +22,17 @@ class MediaHandler
     public static function imageHandler(int $id): bool|string
     {
         $imageRelPath = '/' . $id . '/' . $_FILES['perf_img']['name'];
-        $imageUploadDir = PUBLIC_ROOT . '/img/performance'.$id .'/';
+        $imageUploadDir = PUBLIC_ROOT . '/img/performance/'. $id .'/';
         $imageUploadFile = PUBLIC_ROOT . '/img/performance' . $imageRelPath;
         if (!is_dir($imageUploadDir)) {
             if (!mkdir($imageUploadDir)) {
                 echo 'failed to make directory';
             };
+        }
+        $prevImage = scandir($imageUploadDir, 1);
+        var_dump($prevImage);
+        if (count($prevImage)>2) {
+            unlink($imageUploadDir.$prevImage[0]);
         }
         if (!move_uploaded_file($_FILES['perf_img']['tmp_name'], $imageUploadFile)) {
             echo 'failed to move file!';
