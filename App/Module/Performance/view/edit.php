@@ -3,9 +3,9 @@ $performance = $data;
 $file = __FILE__;
 ?>
 <?php require APP_ROOT . '/Lib/view/includes/header.php';?>
-    <div class="main-box">
-        <main>
-            <form action="/study-project/performance/update/" enctype="multipart/form-data" method="POST">
+    <main class="container">
+        <div class="main-grid5 flex">
+        <form action="/study-project/performance/update/" enctype="multipart/form-data" method="POST">
 <?php if(isset($performance) && !(empty($performance['id']))): ?>
             <h2>Edit Performance id: <?=$performance['id']?></h2>
             <h2>Performance name: <?=$performance['name']?></h2>
@@ -38,6 +38,6 @@ $file = __FILE__;
                 </div>
                 <button id="performanceFormButton">Submit</button>
             </form>
-        </main>
-    </div>
+        </div>
+    </main>
 <?php require APP_ROOT . '/Lib/view/includes/footer.php';?>

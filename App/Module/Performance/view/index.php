@@ -3,15 +3,16 @@ $performances = $data;
 $file = __FILE__;
 ?>
 <?php require APP_ROOT . '/Lib/view/includes/header.php';?>
-    <main>
+    <main class="container">
 <?php if($performances): ?>
+    <div class="main-grid5 flex">
     <?php foreach($performances as $performance): ?>
         <div class="performance">
             <article>
                 <a href="/study-project/performance/show/<?= $performance['id']?>">
                     <ul>
-                        <li class="title"> Performance <?=$performance['name']?></li>
-                        <li> Venue:
+                        <li class="title"><span class="descriptor">Performance</span> <?=$performance['name']?></li>
+                        <li><span class="descriptor">Venue:</span>
                             <?php if($performance['venue_id'] == 1){
                                 echo 'Royal Festival Hall';
                             }else if($performance['venue_id'] == 2){
@@ -20,13 +21,14 @@ $file = __FILE__;
                                 echo 'Kings Place';
                             }?>
                         </li>
-                        <li>Date: <?=$performance['date']?></li>
+                        <li><span class="descriptor">Date:</span> <?=$performance['date']?></li>
                     </ul>
                 </a>
             </article>
         </div>
     <?php endforeach; ?>
-        <div class="addButton">
+    </div>
+    <div class="main-grid8 addButton">
             <a href="/study-project/performance/edit/"><button><strong>+</strong> Performance</button></a>
         </div>
 <?php endif; ?>

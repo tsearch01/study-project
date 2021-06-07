@@ -17,10 +17,11 @@
 <?php endif; ?>
 </head>
 <body>
-    <div class="grid-wrapper">
-        <header>
-            <h1>Performances <span class="year">2021</span></h1>
-            <nav>
+    <div class="body-container">
+        <header class="container">
+            <h1 class="header-grid4-5">Performances <span class="year">2021</span></h1>
+            <nav class="header-grid6">
+                <ul class="flex">
                     <li class="nav-item"><a class="nav-link" href="/study-project">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Log In</a></li>
                     <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>

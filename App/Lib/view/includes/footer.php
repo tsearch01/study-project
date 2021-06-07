@@ -1,5 +1,7 @@
-    <footer>
-        <p>This is the footer</p>
+    <footer class="container">
+        <div class="footer-grid5 flex">
+            <p>This is the footer</p>
+        </div>
     </footer>
 </body>
 

@@ -30,6 +30,7 @@ class Performance extends Controller
             "venue_id" => $_POST['venue'],
             "programme_id" => $_POST['programme'],
             "date" => $_POST['date'],
+            /*If image is on record then use this image, else let image = null*/
             "image" => null,
             "id" => $_POST['performance'],
             "errorMessages" => ''

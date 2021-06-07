@@ -1,16 +1,59 @@
 /* Root elements and Container class styling Begin*/
 html {
     font-family: 'Comfortaa', cursive;
-    height: 100%
 }
 
 body {
     margin: 0;
     background-position: center;
-    background-image: url("../img/marbleColours.jpg");
+    background-image: url("/study-project/Public/img/marbleColours.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     backdrop-filter: sepia(.1);
+}
+
+.body-container {
+    height: 100vh;
+    display: grid;
+
+    grid-template-columns: [col1-start] 25% [col2-start] 50% [col3-start] 25% [end];
+    grid-template-rows: [row1-start] 15% [row2-start] 70% [row3-start] auto [end];
+}
+
+header {
+    grid-row-start: row1-start;
+    grid-row-end: row2-start;
+    grid-column-start: col1-start;
+    grid-column-end: end;
+
+    background-color: rgba(0,0,0,.6);
+}
+
+main {
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    grid-column-start: col1-start;
+    grid-column-end: end;
+}
+
+footer {
+    grid-row-start: row3-start;
+    grid-row-end: end;
+    grid-column-start: col1-start;
+    grid-column-end: end;
+
+    background-color: black;
+    color: white;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: [col1-start] 25% [col2-start] 50% [col3-start] 25% [end];
+    grid-template-rows: [row1-start] 25% [row2-start] 50% [row3-start] 25% [end];
+}
+
+.flex {
+    display: flex;
 }
 
 /* Root elements and Container class styling End*/
@@ -18,12 +61,73 @@ body {
 /* Header elements and class styling Begin*/
 
 
+.main-grid5 {
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    grid-column-start: col2-start;
+    grid-column-end: col3-start;
+}
+
+.main-grid8 {
+    grid-row-start: row3-start;
+    grid-row-end: end;
+    grid-column-start: col2-start;
+    grid-column-end: col3-start;
+}
 /* Header elements and class styling End*/
+.header-grid4-5 {
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    grid-column-start: col1-start;
+    grid-column-end: col3-start;
+}
+
+.header-grid6 {
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    grid-column-start: col3-start;
+    grid-column-end: end;
+}
+
+h1 {
+    font-weight: normal;
+    margin: 0;
+    padding-left: 2%;
+    text-align: justify;
+    box-sizing: border-box;
+}
+
+nav {
+    box-sizing: border-box;
+}
+
+nav ul li{
+    list-style: none;
+    padding-right: 6%;
+}
+
+nav ul li a{
+    color: white;
+    text-decoration: none;
+}
+
+.year{
+    color: white;
+}
 /* Main elements and class styling Begin*/
 
 
 /* Main elements and class styling End*/
 
 /* Footer elements and class styling Begin*/
+.footer-grid5 {
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    grid-column-start: col2-start;
+    grid-column-end: col3-start;
+}
 
+footer p{
+    margin: auto;
+}
 /* Footer elements and class styling End*/

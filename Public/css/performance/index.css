@@ -1,7 +1,28 @@
 /* main styling begin */
 
 /* main styling end */
+.performance {
+    background-color: rgba(218,223,225,.7);
+    border-radius: 15px;
+    margin: 1%;
+    box-sizing: border-box;
+}
 
+.descriptor {
+    color: black;
+}
+
+.performance article ul{
+    padding: 0;
+}
+
+.performance article ul li{
+    list-style: none;
+}
+
+article a{
+    text-decoration: none;
+}
 
 /* template.css used for baseline css*/
 

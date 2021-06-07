@@ -6,10 +6,9 @@ $file = __FILE__;
 
 ?>
 <?php require APP_ROOT . '/Lib/view/includes/header.php';?>
-    <div class="main-box">
-        <main>
+    <main class="container">
 <?php if($performance): ?>
-        <div class="performance">
+        <div class="main-grid5 flex">
             <article>
                 <ul>
                     <li><h2>Performance: <?= $performance[0]['name'] ?></h2></li>
@@ -23,9 +22,8 @@ $file = __FILE__;
                 <a href="/study-project/performance/edit/<?= $performance[0]['id']?>"><button>edit</button></a>
                 <a href="/study-project/performance/delete/<?= $performance[0]['id']?>"><button>delete</button></a>
             </div>
-            <h class="nav-item">Further information on all music available <a href="https://nathanjamesdearden.com/music">here</a></h>
+            <h>Further information on all music available <a href="https://nathanjamesdearden.com/music">here</a></h>
         </div>
 <?php endif; ?>
-        </main>
-    </div>
+    </main>
 <?php require APP_ROOT . '/Lib/view/includes/footer.php';?>
