@@ -1,6 +1,32 @@
 /* main styling begin */
+img {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
 
+article {
+    background-color: rgba(218,223,225,.7);
+    border-radius: 15px;
+    margin: auto;
+    box-sizing: border-box;
+}
 
+.descriptor {
+    color: black;
+}
+
+.performance article ul{
+    padding: 0;
+}
+
+.performance article ul li{
+    list-style: none;
+}
+
+.flex a{
+    margin: auto;
+}
 /* main styling end */
 
 /* template.css used for baseline css*/

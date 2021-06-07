@@ -54,12 +54,18 @@ footer {
 
 .flex {
     display: flex;
+    justify-content: space-around;
 }
 
 /* Root elements and Container class styling End*/
 
 /* Header elements and class styling Begin*/
-
+.main-grid4 {
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    grid-column-start: col1-start;
+    grid-column-end: col2-start;
+}
 
 .main-grid5 {
     grid-row-start: row2-start;
@@ -68,11 +74,33 @@ footer {
     grid-column-end: col3-start;
 }
 
+.main-grid6 {
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    grid-column-start: col3-start;
+    grid-column-end: end;
+}
+
 .main-grid8 {
     grid-row-start: row3-start;
     grid-row-end: end;
     grid-column-start: col2-start;
     grid-column-end: col3-start;
+}
+
+.main-grid4-6 {
+    grid-row-start: row2-start;
+    grid-row-end: row3-start;
+    grid-column-start: col1-start;
+    grid-column-end: end;
+}
+
+.main-grid2-5 {
+    grid-row-start: row1-start;
+    grid-row-end: row3-start;
+    grid-column-start: col2-start;
+    grid-column-end: col3-start;
+    box-sizing: border-box;
 }
 /* Header elements and class styling End*/
 .header-grid4-5 {

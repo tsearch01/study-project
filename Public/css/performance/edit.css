@@ -1,4 +1,20 @@
 /* main styling begin */
+form {
+    background-color: rgba(218,223,225,.7);
+    border-radius: 15px;
+    margin: auto;
+    padding: 5%;
+    box-sizing: border-box;
+}
+
+.inputFields {
+    margin-bottom: 3%;
+    box-sizing: border-box;
+}
+
+button {
+    margin: auto;
+}
 
 /* main styling end */
 

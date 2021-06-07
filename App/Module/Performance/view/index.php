@@ -5,9 +5,9 @@ $file = __FILE__;
 <?php require APP_ROOT . '/Lib/view/includes/header.php';?>
     <main class="container">
 <?php if($performances): ?>
-    <div class="main-grid5 flex">
+    <div class="main-grid4-6 flex">
     <?php foreach($performances as $performance): ?>
-        <div class="performance">
+        <div class="performance flex">
             <article>
                 <a href="/study-project/performance/show/<?= $performance['id']?>">
                     <ul>
@@ -28,7 +28,7 @@ $file = __FILE__;
         </div>
     <?php endforeach; ?>
     </div>
-    <div class="main-grid8 addButton">
+    <div class="main-grid8 flex addButton">
             <a href="/study-project/performance/edit/"><button><strong>+</strong> Performance</button></a>
         </div>
 <?php endif; ?>

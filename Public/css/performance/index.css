@@ -1,11 +1,9 @@
 /* main styling begin */
-
-/* main styling end */
-.performance {
+article {
     background-color: rgba(218,223,225,.7);
     border-radius: 15px;
-    margin: 1%;
     box-sizing: border-box;
+    margin: auto;
 }
 
 .descriptor {
@@ -23,6 +21,11 @@
 article a{
     text-decoration: none;
 }
+
+.addButton a{
+    margin: auto;
+}
+/* main styling end */
 
 /* template.css used for baseline css*/
 
