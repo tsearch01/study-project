@@ -28,19 +28,20 @@ class Performance extends Controller
     {
         $data = [
             "venue_id" => $_POST['venue'],
+            "name" => $_POST['name'],
             "programme_id" => $_POST['programme'],
             "date" => $_POST['date'],
-            /*If image is on record then use this image, else let image = null*/
-            "image" => null,
             "id" => $_POST['performance'],
+            "image" => null,
             "errorMessages" => ''
         ];
 
         $errorMessages = [
-            "venue_id" => "",
-            "programme_id" => "",
-            "date" => "",
-            "id" => ""
+            "venue_id" => '',
+            "programme_id" => '',
+            "date" => '',
+            "id" => '',
+            "image" => ''
         ];
 
         //VALIDATION
@@ -53,15 +54,12 @@ class Performance extends Controller
         //DATE
         $errorMessages['date'] = Validation::dateValidator($data['date']);
         //IMAGE
-        if (!empty($_FILES)) {
-            $errorMessages['image'] = MediaHandler::imageValidator();
-            if (empty($errorMessages['image'])) {
-                  $data['image'] = MediaHandler::imageHandler($data['id']);
-            }
-        };
-
+        $errorMessages['image'] = MediaHandler::imageValidator();
+        if (empty($errorMessages['image'])) {
+              $data['image'] = MediaHandler::imageHandler($data['id']);
+        }
         //CHECK ERROR MESSAGES SET
-        if ((!empty($errorMessages['venue_id'])) || (!empty($errorMessages['programme_id'])) || (!empty($errorMessages['date'])) || (!empty($errorMessages['id']))) {
+        if ((!empty($errorMessages['venue_id'])) || (!empty($errorMessages['programme_id'])) || (!empty($errorMessages['date'])) || (!empty($errorMessages['id'])) || (!empty($errorMessages['image']))) {
             $data['errorMessages'] = $errorMessages;
             $this->view('Performance', 'edit', $data);
         } else {
