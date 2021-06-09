@@ -55,7 +55,7 @@ class Performance extends Controller
         $errorMessages['date'] = Validation::dateValidator($data['date']);
         //IMAGE
         $errorMessages['image'] = MediaHandler::imageValidator();
-        if (empty($errorMessages['image'])) {
+        if (empty($errorMessages['image']) && !empty($data['id'])) {
               $data['image'] = MediaHandler::imageHandler($data['id']);
         }
         //CHECK ERROR MESSAGES SET
@@ -74,13 +74,18 @@ class Performance extends Controller
         }
     }
 
-    public function edit($id = null)
+    public function edit($id = null, $string = null)
     {
         if (!is_null($id)) {
-            //Require html from a specific view and make data in $data variable accessible to the embedded PHP.
-            $results = $this->model('Performance', 'ReadPerformance', $id);
-            $results = $results[0];
-            $this->view('Performance', 'edit', $results);
+            if (str_contains($string, 'image')) {
+                $results = $this->model('Performance', 'ReadPerformance', $id);
+                $results = $results[0];
+                $this->view('Performance', 'edit_media', $results);
+            } else {
+                $results = $this->model('Performance', 'ReadPerformance', $id);
+                $results = $results[0];
+                $this->view('Performance', 'edit', $results);
+            }
         } else {
             $this->view('Performance', 'edit');
         }

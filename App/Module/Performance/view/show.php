@@ -24,8 +24,9 @@ $file = __FILE__;
             </div>
         </div>
         <div class="main-grid6 flex">
-                <a href="/study-project/performance/edit/<?= $performance[0]['id']?>"><button>edit</button></a>
-                <a href="/study-project/performance/delete/<?= $performance[0]['id']?>"><button>delete</button></a>
+            <a href="/study-project/performance/edit/<?= $performance[0]['id']?>"><button>edit</button></a>
+            <a href="/study-project/performance/edit/<?= $performance[0]['id']?>/image"><button>edit image</button></a>
+            <a href="/study-project/performance/delete/<?= $performance[0]['id']?>"><button>delete</button></a>
         </div>
         <div class="main-grid8 flex">
             <h>Further information on all music available <a href="https://nathanjamesdearden.com/music">here</a></h>

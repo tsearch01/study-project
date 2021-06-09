@@ -1,4 +1,10 @@
 /* main styling begin */
+img {
+    margin: auto;
+    width: 200px;
+    height: 200px;
+}
+
 form {
     background-color: rgba(218,223,225,.7);
     border-radius: 15px;
