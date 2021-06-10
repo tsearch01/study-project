@@ -59,9 +59,12 @@ class Performance extends Controller
               $data['image'] = MediaHandler::imageHandler($data['id']);
         }
         //CHECK ERROR MESSAGES SET
-        if ((!empty($errorMessages['venue_id'])) || (!empty($errorMessages['programme_id'])) || (!empty($errorMessages['date'])) || (!empty($errorMessages['id'])) || (!empty($errorMessages['image']))) {
+        if ((!empty($errorMessages['venue_id'])) || (!empty($errorMessages['programme_id'])) || (!empty($errorMessages['date'])) || (!empty($errorMessages['id']))) {
             $data['errorMessages'] = $errorMessages;
             $this->view('Performance', 'edit', $data);
+        } elseif (!empty($errorMessages['image'])) {
+            $data['errorMessages'] = $errorMessages;
+            $this->view('Performance', 'edit_media', $data);
         } else {
             //CONDITIONAL MODEL CALL
             if (empty($data['id'])) {
