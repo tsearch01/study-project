@@ -17,7 +17,7 @@ class Validation
             } else if (intval(floatval($num)) != floatval($num)) {
                 //CHECK venue index in POST array is not a float
                 $errorMessage = "BE: An integer must be entered for this value";
-            } else if ($num > 10) {
+            } else if ($num > 11) {
                 //CHECK venue index in POST array is within range of known venue id integers
                 $errorMessage = "BE: This performance id is not recognised";
             }

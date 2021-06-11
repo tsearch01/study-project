@@ -56,7 +56,7 @@ function checkPerformanceField()
         } else if (!(Number.isInteger(parseFloat(performance.value)))) {
             performanceError.innerText = "FE: A performance id must be an integer.";
             return false;
-        } else if (performance.value > 10) {
+        } else if (performance.value > 11) {
             performanceError.innerText = "FE: This performance id is not recognised";
             return false;
         } else {

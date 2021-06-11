@@ -63,8 +63,10 @@ class Performance extends Controller
             $data['errorMessages'] = $errorMessages;
             $this->view('Performance', 'edit', $data);
         } elseif (!empty($errorMessages['image'])) {
-            $data['errorMessages'] = $errorMessages;
-            $this->view('Performance', 'edit_media', $data);
+            $results = $this->model('Performance', 'ReadPerformance', $data['id']);
+            $results = $results[0];
+            $results['errorMessages'] = $errorMessages;
+            $this->view('Performance', 'edit_media', $results);
         } else {
             //CONDITIONAL MODEL CALL
             if (empty($data['id'])) {
